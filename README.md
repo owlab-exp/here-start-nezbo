@@ -74,7 +74,7 @@ Maven에 있는 라이브러리가 아니라, 사내에서 개발되고 Nexus에
     }
 ...
 ```
-#### 사내 라이브러이의 퍼블리싱
+#### 사내 라이브러리의 퍼블리싱
 Nexus에 퍼블리싱하는 작업은 Maven에 퍼블리싱하는 것과 같은 설정으로 이루어지며, 다만 url들만 달라질 뿐이다.<br>
 https://docs.gradle.org/current/userguide/maven_plugin.html#uploading_to_maven_repositories 를 참조하면 일반적인 사항에 대해 알 수 있을 것이다.<br>
 또는,<br>
