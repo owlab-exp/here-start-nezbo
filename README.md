@@ -26,6 +26,9 @@
 |------------|-----------|-----|
 |192.168.10.81| nexus.obzen.com | http://nexus.obzen.com:8081|
 
+### 이용방법
+
+
 ## Docker Registry
 ### 소개
 [Docker Hub](https://hub.docker.com)의 역할을 사내에 옮겨놓은 것이다. 주요 역할은 docker 이미지의 관리.
@@ -33,7 +36,22 @@
 ### 시스템 정보
 | IP Address | Host Name | URL |
 |------------|-----------|-----|
-|192.168.10.81| nexus.obzen.com | http://nexus.obzen.com:8081|
+|192.168.10.81| obzen-reg | http://obzen-reg:5000|
+
+### 이용방법
+Docker engine으로 하여금 Docker Hub가 아닌, 위의 사내 레지스트리를 이용할 수 있도록 하려면, **/etc/default/docker** 파일(Ubuntu 기준이며, 다른 OS 혹은 리눅스 배포판에서는 다른 위치의 파일일 수 있음)에 다음의 항목을 추가하여야 한다.
+```
+DOCKER_OPTS="--insecure-registry=obzen-reg:5000"
+```
+이후 docker daemon을 재시작하면 된다. 설정이 적용되었는지는 아래와 같이 확인한다.
+```
+ps -ef | grep docker
+```
+의 결과가 아래와 같이 나타나면 된다.
+```
+root  1635     1  0 10:04 ?        00:00:07 /usr/bin/docker daemon --insecure-registry=obzen-reg:5000
+```
+이름이 **obzen-reg:5000/** 으로 시작하는 docker 이미지들을 빌드하여 퍼블리싱하거나, 혹은 다운로드 받을 수 있게 된다.
 
 ## CoreOS Systems
 ### 소개
