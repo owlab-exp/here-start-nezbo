@@ -49,7 +49,24 @@ fleetctl로 docker들을 시작,중지, 모니터링하거나, CoreOS에 로긴�
 Key 생성방법은 https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2 을 참고한다.<br>
 생성된 파일들 중, id_rsa.pub가 자신의 Public RSA Key 파일이며, 이를 관리자에게 전달하면 된다.
 ### CoreOS에 Public RSA Key의 추가
-이미 로긴 권한을 가진 사용자가, CoreOS 시스템들에 로긴하여 다음과 같이 작업하면 된다.
+이미 로긴 권한을 가진 사용자가, 새로운 사용자가 접근할 필요가 있는 모든 CoreOS 시스템들에 로긴하여 다음과 같이 작업하면 된다.<br>
+
 ```
 sudo vi /var/lib/coreos-install/user_data
+```
+user_data 파일에는 CoreOS를 설정하기 위한 모든 정보가 포함되어 있다. 이 중, **ssh-authorized-keys:** 섹션을 찾는다. 아래와 같은 부분이 나타날 것이다.
+```
+ssh-authorized-keys:
+   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvMTJ19zoyZc56IUAi5L+zWKOgcbe0KnFUviFAVd+tmb2LCDTu5DOOqkhgXeB7vvs1HgVbSmVNgk34CZpj70E65T9Hdmv/oVP5GuC1iWnPHx4URFUvoZ5DVZhwdMTCBcU0KbRHZtYf1xPkeWRlk978Vq6+WukGZKQotA2ec/r9k8Ji+HElRq2kQsMBXhtQ/dm+Bh+gaybNCC0psMxdEETB3XoYGh10HzDpr8cbuX11rhfTFdg1CbMdiWzhFX19mrBrTlX1Cq85ceoKTupQjo/R+kNVNpuoUSFE94B+wQBXuWwl3C7VIyKcqfoqDHBl0z5YyzQxgDi7pQzsC213tsNx ernest@ernest-dev
+```
+여기에 새로운 id_rsa.pub의 내용을 추가한다. 추가하면, 아래와 같이 될 것이다.
+
+```
+ssh-authorized-keys:
+   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvMTJ19zoyZc56IUAi5L+zWKOgcbe0KnFUviFAVd+tmb2LCDTu5DOOqkhgXeB7vvs1HgVbSmVNgk34CZpj70E65T9Hdmv/oVP5GuC1iWnPHx4URFUvoZ5DVZhwdMTCBcU0KbRHZtYf1xPkeWRlk978Vq6+WukGZKQotA2ec/r9k8Ji+HElRq2kQsMBXhtQ/dm+Bh+gaybNCC0psMxdEETB3XoYGh10HzDpr8cbuX11rhfTFdg1CbMdiWzhFX19mrBrTlX1Cq85ceoKTupQjo/R+kNVNpuoUSFE94B+wQBXuWwl3C7VIyKcqfoqDHBl0z5YyzQxgDi7pQzsC213tsNx ernest@ernest-dev
+   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDa6kEwL057/FiJpnxbrT+pyxPclBjOi7WXDPjajXn4nDN7YD2JA6M/49dm53K+wCdAZZnVNpXa5GrWiSCQyBpUpnUBPdPq5qGS/+1rCKlIrEHuofWleQWaRTMecP9JQozo1rHxa3oKGMei+NIRQMabiqjhMeqyUZaDS25C26QWtcvVGf++wekt8l8ulm3Y/bfoxofV1/EbWAmeHkJHCrcFyIfwAacApwEtqK3/oVs5lcCJKkY3PeL7bNozlqBsY7oC854GYybdybZjazMR99SHPZAMkR6HcLhQp2hn4vmGOr7vA94em9hWAgeg8vPkeGqbsyR3qIv7QqevqULJG0iT inykang@inykang-System
+```
+CoreOS를 다시 시작한다.
+```
+sudo shutdown -r now
 ```
