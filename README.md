@@ -86,7 +86,7 @@ Nexus에 퍼블리싱하는 작업은 Maven에 퍼블리싱하는 것과 같은 
 https://docs.gradle.org/current/userguide/maven_plugin.html#uploading_to_maven_repositories 를 참조하면 일반적인 사항에 대해 알 수 있을 것이다.<br>
 또는,<br>
 gitlab.obzen.com의 프로젝트들 중 [obzen-cep](http://gitlab.obzen.com:8085/lab/obzen-cep)의 build.gradle을 참조하여도 된다.<br>
-만일 Maven 프로젝트에서 퍼블리싱하는 방법을 알고 싶다면, gitlab.obzen.com의 [siddhi](http://gitlab.obzen.com:8085/lab/siddhi)를 참조하면 된다.
+만일 Maven 프로젝트에서 퍼블리싱하는 방법을 알고 싶다면, gitlab.obzen.com의 [siddhi](http://gitlab.obzen.com:8085/lab/siddhi)의 pom.xml를 참조하면 된다.
 
 ## Docker Registry
 ### 소개
