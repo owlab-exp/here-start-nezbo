@@ -9,7 +9,8 @@
 이 중, GitLab CE, Synatype Nexus, Docker Registry는 현재 docker로 운영되고 있다. <br>
 Docker를 이용하여 이들을 다른 시스템에서 운영하기 위해서는 [http://gitlab.obzen.com:8085/lab/docker-scripts](http://gitlab.obzen.com:8085/lab/docker-scripts)를 참조하도록 한다.<br>
 
-**중요사항**: 이하의 본문에 기술된 **IP Address**들과 그에 대응하는 **Host Name**들은 DNS 서버에 등록되어 있지 않으므로, /etc/hosts (윈도우즈의 경우 다른 파일)에 직접 추가하는 것이 좋다.
+**중요사항**: 이하의 본문에 기술된 **IP Address**들과 그에 대응하는 **Host Name**들은 DNS 서버에 등록되어 있지 않으므로, /etc/hosts (윈도우즈의 경우 다른 파일)에 직접 추가하는 것이 좋다.<br>
+
 | IP Address | Host Name | URL |
 |------------|-----------|-----|
 |192.168.10.81| gitlab.obzen.com | http://gitlab.obzen.com:8085|
