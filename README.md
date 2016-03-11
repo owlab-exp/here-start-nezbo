@@ -5,7 +5,10 @@
 * Sonatype Nexus - Maven Central의 사내 proxy 및 사내 라이브러리 공유 저장소 관리 소프트웨어
 * Docker Registry - Docker 이미지 저장소
 * CoreOS Systems - Docker들을 운영하기 위한 시스템들
-이 중, GitLab CE, Synatype Nexus, Docker Registry는 현재 docker로 운영되고 있다. Docker를 이용하여 이들을 시작하거나 중지하는 등의 작업을 위해서는 [http://gitlab.obzen.com:8085/lab/docker-scripts](http://gitlab.obzen.com:8085/lab/docker-scripts)를 참조하도록 한다.
+
+이 중, GitLab CE, Synatype Nexus, Docker Registry는 현재 docker로 운영되고 있다. <br>
+Docker를 이용하여 이들을 다른 시스템에서 운영하기 위해서는 [http://gitlab.obzen.com:8085/lab/docker-scripts](http://gitlab.obzen.com:8085/lab/docker-scripts)를 참조하도록 한다.<br>
+
 **중요사항**: 이하의 본문에 기술된 **IP Address**들과 그에 대응하는 **Host Name**들은 DNS 서버에 등록되어 있지 않으므로, /etc/hosts (윈도우즈의 경우 다른 파일)에 직접 추가하는 것이 좋다.
 ## GitLab CE
 ### 소개
